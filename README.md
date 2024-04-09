@@ -19,3 +19,4 @@ Proiect WAD
 
 
 Figma: https://www.figma.com/file/XYaozEihiH2HnOUKzNBSTk/Untitled?type=design&node-id=0%3A1&mode=design&t=zPSekBaVIeszKP84-1
+Trello: https://trello.com/invite/b/stNA7r9H/ATTI0aed54784304dacdcbfbfe409b85248dFF460559/dashy
