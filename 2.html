@@ -1,0 +1,362 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Project Report Dashboard
+  </title>
+  <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js">
+  </script>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+  </style>
+ </head>
+ <body>
+  <div id="app">
+   <div class="min-h-screen bg-gray-100 p-8">
+    <div class="grid grid-cols-4 gap-4">
+     <!-- Sidebar -->
+     <div class="col-span-1 bg-white p-4 rounded-lg shadow">
+      <div class="text-red-500 font-bold text-lg mb-6">
+       TECHNOVA
+      </div>
+      <div class="space-y-4">
+       <div class="flex items-center space-x-2 text-blue-500">
+        <i class="fas fa-project-diagram">
+        </i>
+        <span>
+         Projects
+        </span>
+       </div>
+       <div class="flex items-center space-x-2">
+        <i class="fas fa-users">
+        </i>
+        <span>
+         Employees
+        </span>
+       </div>
+       <div class="flex items-center space-x-2">
+        <i class="fas fa-building">
+        </i>
+        <span>
+         Company
+        </span>
+       </div>
+      </div>
+      <div class="mt-8">
+       <img alt="Profile picture of Sam Wheeler" class="h-10 w-10 rounded-full" height="100" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-hKPHoECcHkEM8Dl2KGFX6xzg.png?st=2024-04-09T07%3A53%3A09Z&amp;se=2024-04-09T09%3A53%3A09Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-04-08T15%3A30%3A30Z&amp;ske=2024-04-09T15%3A30%3A30Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=MijWXmcbIghloNf/%2BDtWjr9JHssof1PFPctTdvoZsxU%3D" width="100"/>
+       <div class="mt-2">
+        <div class="font-semibold">
+         Sam Wheeler
+        </div>
+        <div class="text-gray-500 text-sm">
+         samwheeler@example.com
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Main Content -->
+     <div class="col-span-3 space-y-4">
+      <!-- Header -->
+      <div class="flex justify-between items-center">
+       <h1 class="text-2xl font-bold">
+        Project Report
+       </h1>
+       <button class="text-blue-500 hover:text-blue-600">
+        <i class="fas fa-download">
+        </i>
+        <span>
+         Download
+        </span>
+       </button>
+      </div>
+      <!-- Project Selector -->
+      <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+       <div class="font-semibold">
+        Project: Dev123 new feature
+       </div>
+       <div class="text-gray-500">
+        Month
+        <i class="fas fa-chevron-down">
+        </i>
+       </div>
+      </div>
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-3 gap-4">
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         People On Project
+        </div>
+        <div class="text-2xl font-bold">
+         27/80
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         Bugs solved
+        </div>
+        <div class="text-2xl font-bold">
+         3,298
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         Av. Bug Length
+        </div>
+        <div class="text-2xl font-bold">
+         4 days
+        </div>
+       </div>
+      </div>
+      <!-- Progress Bars -->
+      <div class="grid grid-cols-3 gap-4">
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         Sprint Progress
+        </div>
+        <div class="text-2xl font-bold">
+         64%
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+         <div class="bg-blue-600 h-2.5 rounded-full" style="width: 64%">
+         </div>
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         Overall Progress
+        </div>
+        <div class="text-2xl font-bold">
+         86%
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+         <div class="bg-green-600 h-2.5 rounded-full" style="width: 86%">
+         </div>
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow">
+        <div class="text-gray-500">
+         Knowledge Gain
+        </div>
+        <div class="text-2xl font-bold text-green-500">
+         +34%
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+         <div class="bg-green-600 h-2.5 rounded-full" style="width: 34%">
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Charts and Lists -->
+      <div class="grid grid-cols-2 gap-4">
+       <!-- Left Column -->
+       <div class="bg-white p-4 rounded-lg shadow space-y-4">
+        <div class="text-gray-500">
+         Weakest Features
+        </div>
+        <div class="space-y-2">
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-lock text-red-500">
+           </i>
+           <span class="ml-2">
+            #32 - Add MFA auth
+           </span>
+          </div>
+          <div class="text-red-500">
+           74% Correct
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-lock text-red-500">
+           </i>
+           <span class="ml-2">
+            #32 - Add MFA auth
+           </span>
+          </div>
+          <div class="text-red-500">
+           52% Correct
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-lock text-red-500">
+           </i>
+           <span class="ml-2">
+            #32 - Add MFA auth
+           </span>
+          </div>
+          <div class="text-red-500">
+           36% Correct
+          </div>
+         </div>
+        </div>
+        <div class="text-gray-500">
+         Most Tasks done by:
+        </div>
+        <div class="space-y-2">
+         <div class="flex justify-between items-center">
+          <span>
+           Jesse Thomas
+          </span>
+          <div class="text-gray-500">
+           24 Tasks - 98% Completion Rate
+          </div>
+          <div class="text-blue-500">
+           1
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Thisal Mathiyazhagan
+          </span>
+          <div class="text-gray-500">
+           22 Tasks - 91% Completion Rate
+          </div>
+          <div class="text-blue-500">
+           2
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Helen Chuang
+          </span>
+          <div class="text-gray-500">
+           17 Tasks - 73% Completion Rate
+          </div>
+          <div class="text-blue-500">
+           3
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Lura Silverman
+          </span>
+          <div class="text-gray-500">
+           16 Tasks - 75% Completion Rate
+          </div>
+          <div class="text-blue-500">
+           4
+          </div>
+         </div>
+        </div>
+       </div>
+       <!-- Right Column -->
+       <div class="bg-white p-4 rounded-lg shadow space-y-4">
+        <div class="text-gray-500">
+         Activity
+        </div>
+        <!-- Placeholder for chart -->
+        <div class="h-40 bg-gray-200 rounded-lg">
+        </div>
+        <div class="text-gray-500">
+         Strongest Features
+        </div>
+        <div class="space-y-2">
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-lock text-green-500">
+           </i>
+           <span class="ml-2">
+            #32 - Add MFA auth
+           </span>
+          </div>
+          <div class="text-green-500">
+           95% Correct
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-tasks text-green-500">
+           </i>
+           <span class="ml-2">
+            #85 Solve Flow with Jira
+           </span>
+          </div>
+          <div class="text-green-500">
+           92% Correct
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <div class="flex items-center">
+           <i class="fas fa-cloud text-green-500">
+           </i>
+           <span class="ml-2">
+            #45 - Add Cloud Retrieval
+           </span>
+          </div>
+          <div class="text-green-500">
+           89% Correct
+          </div>
+         </div>
+        </div>
+        <div class="text-gray-500">
+         Groups Leaderboard
+        </div>
+        <div class="space-y-2">
+         <div class="flex justify-between items-center">
+          <span>
+           Houston Facility
+          </span>
+          <div class="text-gray-500">
+           52 Points / User - 97% Correct
+          </div>
+          <div class="text-blue-500">
+           1
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Test Group
+          </span>
+          <div class="text-gray-500">
+           52 Points / User - 95% Correct
+          </div>
+          <div class="text-blue-500">
+           2
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Sales Leadership
+          </span>
+          <div class="text-gray-500">
+           52 Points / User - 87% Correct
+          </div>
+          <div class="text-blue-500">
+           3
+          </div>
+         </div>
+         <div class="flex justify-between items-center">
+          <span>
+           Northeast Region
+          </span>
+          <div class="text-gray-500">
+           52 Points / User
+          </div>
+          <div class="text-blue-500">
+           4
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   const { createApp } = Vue;
+    createApp({
+        // Vue app setup
+    }).mount('#app');
+  </script>
+ </body>
+</html>
