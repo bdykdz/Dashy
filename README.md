@@ -16,3 +16,6 @@ Proiect WAD
    - **As a** project manager,
    - **I want to** view a dashboard that gives an overview of the company's operations as a whole, including all ongoing projects, resource allocations, and company-wide deadlines,
    - **So that** I can understand how individual projects fit into the larger company context and coordinate more effectively with other departments or teams.
+
+
+Figma: https://www.figma.com/file/XYaozEihiH2HnOUKzNBSTk/Untitled?type=design&node-id=0%3A1&mode=design&t=zPSekBaVIeszKP84-1
