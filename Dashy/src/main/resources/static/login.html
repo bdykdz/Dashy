@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://registry.npmmirror.com/vue/3.3.11/files/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        #app {
+            background-image: url('https://placehold.co/1000x800/e63946/ffffff?text=Topographic+pattern+background&font=open-sans');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 400px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            color: #e63946;
+            font-weight: 600;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
+        .login-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .login-footer a {
+            color: #e63946;
+            text-decoration: none;
+        }
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #e63946;
+            color: white;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>TECHNOVA</h1>
+                <p class="text-gray-500">SOLUTIONS</p>
+            </div>
+            <div class="input-group">
+                <label for="username">UserName</label>
+                <input type="text" id="username" placeholder="UserName" v-model="username">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" v-model="password">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="login-footer">
+                <a href="#">Recover Password</a>
+            </div>
+            <button class="login-button" @click="login">Login</button>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    username: '',
+                    password: ''
+                };
+            },
+            methods: {
+                async login() {
+                    try {
+                        const response = await axios.post('/api/users/login', {
+                            username: this.username,
+                            password: this.password
+                        });
+                        alert('Login successful');
+                        // Redirect or handle login success scenario
+                    } catch (error) {
+                        console.error('Failed to login', error);
+                        alert('Login failed');
+                        // Handle error
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
