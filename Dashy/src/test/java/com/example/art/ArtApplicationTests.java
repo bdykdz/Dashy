@@ -1,13 +1,13 @@
-package com.wad.firstmvc;
+package com.example.art;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FirstMvcApplicationTests {
+class ArtApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
