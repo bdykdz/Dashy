@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Company Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="flex">
+    <!-- Sidebar -->
+    <div class="w-1/5 bg-white h-screen p-4">
+        <div class="flex items-center mb-8">
+            <div class="bg-red-500 text-white font-bold px-4 py-2 rounded">
+                TECHNOVA
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li class="mb-4">
+                    <a class="flex items-center text-blue-500" href="#">
+                        <i class="fas fa-home mr-2"></i>
+                        Company
+                    </a>
+                </li>
+                <li class="mb-4">
+                    <a class="flex items-center text-gray-600" href="/project-report">
+                        <i class="fas fa-folder mr-2"></i>
+                        Projects
+                    </a>
+                </li>
+                <li class="mb-4">
+                    <a class="flex items-center text-gray-600" href="/employee-dashboard">
+                        <i class="fas fa-users mr-2"></i>
+                        Employees
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-4 left-4 flex items-center">
+            <img alt="Profile picture of Sam Wheeler" class="rounded-full mr-2" height="40" src="https://placehold.co/40x40" width="40"/>
+            <div>
+                <div class="font-semibold">
+                    Sam Wheeler
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="w-4/5 p-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold">
+                Company Report
+            </h1>
+            <button class="bg-gray-200 text-gray-600 px-4 py-2 rounded">
+                <i class="fas fa-download mr-2"></i>
+                Download
+            </button>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+            <!-- Projects Overview -->
+            <div class="bg-white p-6 rounded shadow">
+                <h2 class="text-xl font-semibold mb-4">
+                    Projects Overview
+                </h2>
+                <img alt="Bar chart showing project overview" height="200" src="https://placehold.co/400x200?text=Bar+Chart" width="400"/>
+            </div>
+            <!-- % Projects -->
+            <div class="bg-white p-6 rounded shadow">
+                <h2 class="text-xl font-semibold mb-4">
+                    % Projects
+                </h2>
+                <img alt="Pie chart showing percentage of projects" height="200" src="https://placehold.co/400x200?text=Pie+Chart" width="400"/>
+                <p class="text-gray-600 mt-4">
+                    Every large design company whether it's a multi-national branding corporation or a regular down at heel tatty magazine publisher needs to fill holes in the workforce.
+                </p>
+            </div>
+        </div>
+        <!-- Projects Outgoing -->
+        <h2 class="text-xl font-semibold mt-8 mb-4">
+            Projects Outgoing
+        </h2>
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Project Cards -->
+            <div class="bg-white p-6 rounded shadow">
+                <div class="flex items-center mb-2">
+                        <span class="bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded mr-2">
+                            Deep
+                        </span>
+                    <span class="bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            Minimal
+                        </span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">
+                    Cologne
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    When you enter into any new area of science, you almost always find.
+                </p>
+                <a class="text-blue-500" href="#">
+                    Details
+                </a>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <div class="flex items-center mb-2">
+                        <span class="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            Lost
+                        </span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">
+                    Bengaluru
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    Your business is in a continual battle for your customers' recognition whether you.
+                </p>
+                <a class="text-blue-500" href="#">
+                    Details
+                </a>
+            </div>
+            <div class="bg-white p-6 rounded shadow">
+                <div class="flex items-center mb-2">
+                        <span class="bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded mr-2">
+                            Deep
+                        </span>
+                    <span class="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+                            Balanced
+                        </span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">
+                    Kathmandu
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    When you enter into any new area
+                </p>
+                <a class="text-blue-500" href="#">
+                    Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

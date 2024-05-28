@@ -99,11 +99,11 @@
             <img alt="TECHNOVA logo" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-ZDyZ5qdjwhxPHMlUx1WguebW.png" width="100"/>
         </div>
         <nav class="nav flex-column">
-            <a class="nav-link active" href="#">
+            <a id="employee-dashboard-link" class="nav-link active" href="#">
                 <i class="fas fa-user"></i>
                 Employee
             </a>
-            <a class="nav-link" href="#">
+            <a id="project-report-link" class="nav-link" href="/project-report">
                 <i class="fas fa-project-diagram"></i>
                 Project
             </a>
@@ -245,20 +245,30 @@
                             <circle class="circle circle-fg" cx="50" cy="50" r="45"></circle>
                         </svg>
                         <div class="percentage" id="occupancy-percentage">0%</div>
-                </div>
-                <div class="text-center mt-3">
-                    <span class="badge bg-danger">Attached</span>
-                    <span class="badge bg-light text-dark">Non-attached</span>
+                    </div>
+                    <div class="text-center mt-3">
+                        <span class="badge bg-danger">Attached</span>
+                        <span class="badge bg-light text-dark">Non-attached</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         loadEmployeeList();
+
+         document.getElementById('employee-dashboard-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '/employee-dashboard';
+        });
+
+        document.getElementById('project-report-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '/project-report';
+        });
     });
 
     function loadEmployeeList() {

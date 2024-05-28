@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Project Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="flex">
+    <!-- Sidebar -->
+    <div class="w-1/5 bg-white h-screen p-4">
+        <div class="flex items-center mb-8">
+            <img alt="Technova Logo" class="h-10" height="40"
+                 src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-gnKxHM5CrwmaphzAAGUMlizf.png"
+                 width="100"/>
+        </div>
+        <nav>
+            <ul>
+                <li class="mb-4">
+                    <a class="flex items-center text-gray-600" href="/company-report">
+                        <i class="fas fa-home mr-2"></i>
+                        Company
+                    </a>
+                </li>
+                <li class="mb-4">
+                    <a class="flex items-center text-blue-500" href="#">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Projects
+                    </a>
+                </li>
+                <li class="mb-4">
+                    <a class="flex items-center text-gray-600" href="/employee-dashboard">
+                        <i class="fas fa-users mr-2"></i>
+                        Employees
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="absolute bottom-4 left-4 flex items-center">
+            <img alt="User Avatar" class="rounded-full h-10 w-10 mr-2" height="40"
+                 src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-jKhMGPLO6IaHTw3Gak3dlD3K.png"
+                 width="40"/>
+            <div>
+                <p class="text-gray-800">
+                    Sam Wheeler
+                </p>
+                <p class="text-gray-500 text-sm">
+                    samwheeler@example.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="w-4/5 p-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold">
+                Project Report
+            </h1>
+            <div class="flex items-center">
+                <button class="text-gray-600 mr-4">
+                    <i class="fas fa-download"></i>
+                    Download
+                </button>
+                <div class="relative">
+                    <select class="border border-gray-300 rounded p-2">
+                        <option>Project: Dev123 new feature</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    People On Project
+                </p>
+                <p class="text-2xl font-bold">
+                    27/80
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    Bugs solved
+                </p>
+                <p class="text-2xl font-bold">
+                    3,298
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    Av. Bug Length
+                </p>
+                <p class="text-2xl font-bold">
+                    4 days
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow col-span-3">
+                <p class="text-gray-600">
+                    Activity
+                </p>
+                <div class="flex justify-between items-center">
+                    <div class="w-full">
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                    <div class="relative">
+                        <select class="border border-gray-300 rounded p-2">
+                            <option>Month</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    Sprint Progress
+                </p>
+                <p class="text-2xl font-bold">
+                    64%
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    Overall Progress
+                </p>
+                <p class="text-2xl font-bold">
+                    86%
+                </p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600">
+                    Knowledge Gain
+                </p>
+                <p class="text-2xl font-bold">
+                    +34%
+                </p>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600 mb-4">
+                    Weakest Features
+                </p>
+                <div class="flex items-center mb-4">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #32 - Add MFA auth
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-red-500 h-2.5 rounded-full" style="width: 74%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            74% Correct
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #32 - Add MFA auth
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-red-500 h-2.5 rounded-full" style="width: 52%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            52% Correct
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #32 - Add MFA auth
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-red-500 h-2.5 rounded-full" style="width: 36%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            36% Correct
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600 mb-4">
+                    Strongest Features
+                </p>
+                <div class="flex items-center mb-4">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #32 - Add MFA auth
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            95% Correct
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #85 Solve Flow with Jira
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            92% Correct
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <img alt="Feature Image" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-t98laGsCUaCXolVMdoylsEfs.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            #45 - Add Cloud Retrieval
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 89%"></div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            89% Correct
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600 mb-4">
+                    Most Tasks done by:
+                </p>
+                <div class="flex items-center mb-4">
+                    <img alt="User Avatar" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-jKhMGPLO6IaHTw3Gak3dlD3K.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Jesse Thomas
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            24 Tasks - 98% Completion Rate
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        1
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img alt="User Avatar" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-jKhMGPLO6IaHTw3Gak3dlD3K.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Thisal Mathiyazhagan
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            12 Tasks - 91% Completion Rate
+                        </p>
+                    </div>
+                    <p class="text-red-500">
+                        2
+                        <i class="fas fa-arrow-down"></i>
+                    </p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img alt="User Avatar" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-jKhMGPLO6IaHTw3Gak3dlD3K.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Helen Chuang
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            7 Tasks - 77% Completion Rate
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        3
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+                <div class="flex items-center">
+                    <img alt="User Avatar" class="rounded-full h-10 w-10 mr-2" height="40"
+                         src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-jKhMGPLO6IaHTw3Gak3dlD3K.png"
+                         width="40"/>
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Lara Silverman
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            15 Tasks - 75% Completion Rate
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        4
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <p class="text-gray-600 mb-4">
+                    Groups Leaderboard
+                </p>
+                <div class="flex items-center mb-4">
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Houston Facility
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            52 Points / User - 97% Correct
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        1
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Test Group
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            52 Points / User - 95% Correct
+                        </p>
+                    </div>
+                    <p class="text-red-500">
+                        2
+                        <i class="fas fa-arrow-down"></i>
+                    </p>
+                </div>
+                <div class="flex items-center mb-4">
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Sales Leadership
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            52 Points / User - 92% Correct
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        3
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-full">
+                        <p class="text-gray-800">
+                            Northeast Region
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            52 Points / User
+                        </p>
+                    </div>
+                    <p class="text-green-500">
+                        4
+                        <i class="fas fa-arrow-up"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    const activityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+            datasets: [{
+                label: 'Activity',
+                data: [100, 200, 150, 300, 250, 400, 350, 300, 200, 250, 300, 350],
+                backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                borderColor: 'rgba(59, 130, 246, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

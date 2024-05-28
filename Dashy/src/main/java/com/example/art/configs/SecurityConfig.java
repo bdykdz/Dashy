@@ -21,7 +21,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Use NoOpPasswordEncoder to store plain text passwords
         return NoOpPasswordEncoder.getInstance();
     }
 
@@ -46,7 +45,7 @@ public class SecurityConfig {
                         logout
                                 .permitAll()
                 )
-                .csrf(csrf -> csrf.disable());  // Disable CSRF for simplicity, enable it and handle the token properly for production
+                .csrf(csrf -> csrf.disable());
         return http.build();
     }
 }

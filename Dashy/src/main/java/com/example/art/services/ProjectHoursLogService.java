@@ -23,4 +23,7 @@ public class ProjectHoursLogService {
     public List<ProjectHoursLog> getLogsByUserId(Long userId) {
         return projectHoursLogRepository.findByUserId(userId);
     }
+
+    public List<ProjectHoursLog> getAllLogs() {
+    }
 }
