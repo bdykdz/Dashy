@@ -1,9 +1,335 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Employee Dashboard</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .sidebar {
+            background-color: white;
+            height: 100vh;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .sidebar .nav-link {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        .sidebar .nav-link.active {
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            background-color: #28a745;
+        }
+        .employee-info {
+            display: flex;
+            align-items: center;
+        }
+        .employee-info img {
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .employee-info h5 {
+            margin: 0;
+        }
+        .employee-info p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        .stats-card h5 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .stats-card p {
+            margin: 0;
+            color: #6c757d;
+        }
+        .occupancy-chart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .occupancy-chart .circle {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 85;
+            stroke-width: 10;
+            fill: none;
+        }
+        .occupancy-chart .circle-bg {
+            stroke: #e0e0e0;
+        }
+        .occupancy-chart .circle-fg {
+            stroke: #dc3545;
+        }
+        .occupancy-chart .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<h1 th:text="${message}"></h1>
+<div class="d-flex">
+    <div class="sidebar p-3">
+        <div class="text-center mb-4">
+            <img alt="TECHNOVA logo" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-ZDyZ5qdjwhxPHMlUx1WguebW.png" width="100"/>
+        </div>
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#">
+                <i class="fas fa-user"></i>
+                Employee
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-project-diagram"></i>
+                Project
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-building"></i>
+                Company
+            </a>
+        </nav>
+        <div class="mt-auto text-center">
+            <img alt="User profile picture" class="rounded-circle" height="50" src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-9ZbFkufmBekEK0QFBKNwSjvf/user-QFDcxAqnWBNzyBF1DvFN40SM/img-ucNfNBgHWmh6HwxtE0SSVNFm.png" width="50"/>
+            <p class="mt-2 mb-1">Welcome, User</p>
+            <a href="/logout" class="btn btn-sm btn-outline-secondary">Logout</a>
+        </div>
+    </div>
+    <div class="content flex-grow-1 p-3">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Employee Dashboard</h2>
+            <div>
+                <a href="/add-hours" class="btn btn-light">
+                    <i class="fas fa-plus"></i> Add Hours
+                </a>
+                <button class="btn btn-light" onclick="downloadExcel()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card p-3">
+                    <div class="employee-info mb-3" id="employee-info">
+                        <img alt="Employee profile picture" height="50" src="https://via.placeholder.com/50" width="50"/>
+                        <div>
+                            <h5 id="employee-name">Select an employee</h5>
+                            <p id="employee-position">Position</p>
+                        </div>
+                    </div>
+                    <h6>Most used in projects</h6>
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                            <span>Dev123 new feature</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                            <span>QA Automation</span>
+                            <span>12%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 12%;"></div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="d-flex justify-content-between">
+                            <span>DevOps Dev123</span>
+                            <span>22%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 22%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h6>Employee</h6>
+                    <ul class="list-unstyled" id="employee-list">
+                        <!-- Employee list will be dynamically populated -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="hours-allocated">0</h5>
+                    <p>Hours Allocated</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="vacation-hours">0</h5>
+                    <p>Vacation Hours</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="medical-hours">0</h5>
+                    <p>Medical Hours</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="project-allocation">0%</h5>
+                    <p>Project Allocation</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="cleaned-task-ratio">0%</h5>
+                    <p>Cleaned Task Ratio</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card stats-card">
+                    <h5 id="achieved-tasks">0</h5>
+                    <p>Achieved Tasks</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card p-3">
+                    <table class="table mb-0">
+                        <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Project Mgr</th>
+                            <th>Hours</th>
+                            <th>Month</th>
+                            <th>Year</th>
+                        </tr>
+                        </thead>
+                        <tbody id="project-list">
+                        <!-- Project data will be dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h6>Occupancy</h6>
+                    <div class="occupancy-chart">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="circle circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle circle-fg" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="percentage" id="occupancy-percentage">0%</div>
+                </div>
+                <div class="text-center mt-3">
+                    <span class="badge bg-danger">Attached</span>
+                    <span class="badge bg-light text-dark">Non-attached</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadEmployeeList();
+    });
+
+    function loadEmployeeList() {
+        fetch('/api/employees')
+            .then(response => response.json())
+            .then(data => {
+                const employeeList = document.getElementById('employee-list');
+                data.forEach(employee => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <input type="radio" name="employee" id="employee${employee.id}" value="${employee.id}" onclick="loadEmployeeData(${employee.id})">
+                        <label for="employee${employee.id}">${employee.name}</label>
+                    `;
+                    employeeList.appendChild(listItem);
+                });
+            });
+    }
+
+    function loadEmployeeData(employeeId) {
+        fetch(`/api/employees/${employeeId}`)
+            .then(response => response.json())
+            .then(employee => {
+                document.getElementById('employee-name').textContent = employee.name;
+                document.getElementById('employee-position').textContent = employee.position;
+                document.getElementById('hours-allocated').textContent = `${employee.hoursAllocated}/200`;
+                document.getElementById('vacation-hours').textContent = employee.vacationHours;
+                document.getElementById('medical-hours').textContent = employee.medicalHours;
+                document.getElementById('project-allocation').textContent = `${employee.projectAllocationChange}%`;
+                document.getElementById('cleaned-task-ratio').textContent = `${employee.cleanedTaskRatio}%`;
+                document.getElementById('achieved-tasks').textContent = employee.achievedTasks;
+
+                const occupancy = calculateOccupancy(employee.hoursAllocated);
+                updateOccupancyChart(occupancy);
+
+                // Update project list
+                const projectList = document.getElementById('project-list');
+                projectList.innerHTML = '';
+                fetch(`/api/project-hours-log?employeeId=${employeeId}`)
+                    .then(response => response.json())
+                    .then(logs => {
+                        logs.forEach(log => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${log.project.name}</td>
+                                <td>${log.manager}</td>
+                                <td>${log.hours}</td>
+                                <td>${log.month}</td>
+                                <td>${log.year}</td>
+                            `;
+                            projectList.appendChild(row);
+                        });
+                    });
+            });
+    }
+
+    function calculateOccupancy(hoursAllocated) {
+        return (hoursAllocated / 200) * 100;
+    }
+
+    function updateOccupancyChart(occupancy) {
+        const circle = document.querySelector('.circle-fg');
+        const offset = 283 - (283 * occupancy / 100);
+        circle.style.strokeDashoffset = offset;
+        document.getElementById('occupancy-percentage').textContent = `${Math.round(occupancy)}%`;
+    }
+
+    function downloadExcel() {
+        window.location.href = '/api/employees/download-excel';
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGz2z8CLsB7j81W2f5eCF+J2zF5Dv5M3pa8k/6U8tMOqz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-pprn3073KE6tl6WfTz4mj7bHvh2yZ6LzNLY6D0E1KIj4lFflP0BChneFwp4vg+p6" crossorigin="anonymous"></script>
 </body>
 </html>

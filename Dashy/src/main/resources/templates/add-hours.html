@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hours</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Add Hours</h2>
+    <form action="/api/employees/add-hours" method="post">
+        <div class="mb-3">
+            <label for="employeeId" class="form-label">Employee</label>
+            <select class="form-select" id="employeeId" name="employeeId">
+                <!-- Employee options will be dynamically populated -->
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="projectId" class="form-label">Project ID</label>
+            <input type="number" class="form-control" id="projectId" name="projectId" required>
+        </div>
+        <div class="mb-3">
+            <label for="hours" class="form-label">Hours</label>
+            <input type="number" class="form-control" id="hours" name="hours" required>
+        </div>
+        <div class="mb-3">
+            <label for="month" class="form-label">Month</label>
+            <input type="number" class="form-control" id="month" name="month" required>
+        </div>
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" class="form-control" id="year" name="year" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Hours</button>
+        <a href="/user/dashboard" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadEmployeeOptions();
+        loadProjectOptions();
+
+        document.getElementById('add-hours-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            addHours();
+        });
+    });
+
+    function loadEmployeeOptions() {
+        fetch('/api/employees')
+            .then(response => response.json())
+            .then(data => {
+                const employeeSelect = document.getElementById('employeeId');
+                data.forEach(employee => {
+                    const option = document.createElement('option');
+                    option.value = employee.id;
+                    option.textContent = employee.name;
+                    employeeSelect.appendChild(option);
+                });
+            });
+    }
+
+    function loadProjectOptions() {
+        fetch('/api/projects')
+            .then(response => response.json())
+            .then(data => {
+                const projectSelect = document.getElementById('projectId');
+                data.forEach(project => {
+                    const option = document.createElement('option');
+                    option.value = project.id;
+                    option.textContent = project.name;
+                    projectSelect.appendChild(option);
+                });
+            });
+    }
+
+    function addHours() {
+        const form = document.getElementById('add-hours-form');
+        const formData = new FormData(form);
+        const data = {
+            employeeId: formData.get('employeeId'),
+            projectId: formData.get('projectId'),
+            hours: formData.get('hours'),
+            month: formData.get('month'),
+            year: formData.get('year')
+        };
+
+        fetch('/api/employees/add-hours', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/user/dashboard';
+            } else {
+                alert('Error adding hours');
+            }
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybAqDYL4Ak4JFdI8jGkhB8Ffm06C5OvvLF0GR1czrjULJWS2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-OERcA2w9T0xVbPHgy2pI2rc9U0CpHFlkNdKZIQq01xMjPDI6iTMHVHpeu0iKxgyI" crossorigin="anonymous"></script>
+</body>
+</html>
